@@ -1,0 +1,12 @@
+server:
+  port: 9940
+
+eureka:
+  client:
+    # 服务发现本身不需要注册为服务
+    register-with-eureka: false
+    # 不在本地缓存注册表信息
+    fetch-registry: false
+  server:
+    # 在服务器接收请求之前等待的初始时间
+    wait-time-in-ms-when-sync-empty: 5

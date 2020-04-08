@@ -1,0 +1,18 @@
+server:
+  port: 9943
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:9940/eureka
+
+zuul:
+  routes:
+    helloserivce: /hello/_**
+  prefix: /api
