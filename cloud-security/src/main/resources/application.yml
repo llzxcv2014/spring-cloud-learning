@@ -1,5 +1,3 @@
-
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -10,3 +8,12 @@ eureka:
       defaultZone: http://localhost:9940/eureka
 server:
   port: 9945
+  servlet:
+    session:
+      timeout: 30m
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,18 @@
+server:
+  port: 9946
+  servlet:
+    session:
+      cookie:
+        # 防止Cookie冲突，冲突会导致登录验证不通过
+        name: OAUTH2-CLIENT-SESSIONID
+
+security:
+  oauth2:
+    client:
+      client-id: cloud-client
+      client-secret: 123456
+      user-authorization-uri: http://127.0.0.1:9945/oauth/authorize
+      access-token-uri: http://127.0.0.1:9945/oauth/token
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:9945/oauth/token_key

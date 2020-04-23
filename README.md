@@ -164,6 +164,16 @@ Netflix自带了Ribbon
 
 ### Spring OAuth2
 
+#### 推荐文章
+
+[Spring Cloud Security：Oauth2使用入门](http://www.imooc.com/article/298655)
+
+[Spring Cloud Security：Oauth2结合JWT使用](http://www.imooc.com/article/298656)
+
+[Spring Cloud Security：Oauth2实现单点登录](http://www.imooc.com/article/298880)
+
+[仅需四步，整合SpringSecurity+JWT实现登录认证 ！](http://www.imooc.com/article/299721)
+
 1. 受保护资源
 2. 资源持有者
 3. 应用程序
