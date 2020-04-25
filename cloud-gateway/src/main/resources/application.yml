@@ -1,0 +1,26 @@
+server:
+  port: 9948
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:9940/eureka
+service-url:
+  producer-service: http://localhost:9941
+spring:
+  cloud:
+    gateway:
+      # 允许服务发现
+      discovery:
+        locator:
+          enabled: true
+          # 使用小写的服务名，默认是大写
+          lower-case-service-id: true
+      routes:
+        - id: producer
+          uri: lb://cloud-producer
+          predicates:
+              - Path=/hello/**
