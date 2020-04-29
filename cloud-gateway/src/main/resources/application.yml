@@ -8,8 +8,6 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:9940/eureka
-service-url:
-  producer-service: http://localhost:9941
 spring:
   cloud:
     gateway:
@@ -23,4 +21,20 @@ spring:
         - id: producer
           uri: lb://cloud-producer
           predicates:
-              - Path=/hello/**
+            - Path=/hello/**
+            - name: RequestRateLimiter
+                args:
+                  redis-rate-limiter.replenishRate: 1 # 令牌桶每秒填充速率
+                  redis-rate-limiter.burstCapacity: 2 # 令牌桶总容量
+                  key-resolver: "#{@pathKeyResolver}" # 使用 SpEL 表达式按名称引用 bean
+  redis:
+    lettuce:
+      pool:
+        max-wait: 10000
+        max-idle: 200
+        min-idle: 5
+        max-active: 1024
+    timeout: 10000
+    host: 127.0.0.1
+    port: 6379
+    database: 5

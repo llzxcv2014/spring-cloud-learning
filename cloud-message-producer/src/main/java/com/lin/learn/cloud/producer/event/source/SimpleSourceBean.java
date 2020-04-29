@@ -19,6 +19,6 @@ public class SimpleSourceBean {
     }
 
     public void publishOrgChange(String action, String orgId) {
-        
+
     }
 }
