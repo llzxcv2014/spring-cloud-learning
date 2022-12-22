@@ -7,8 +7,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
 
-@EnableEurekaClient
-@EnableCircuitBreaker
+//@EnableEurekaClient
+//@EnableCircuitBreaker
 @EnableBinding(Source.class)
 @SpringBootApplication
 public class CloudProducerApplication {

@@ -1,13 +1,29 @@
 server:
   port: 9944
 
-
 eureka:
   instance:
     prefer-ip-address: true
-
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:9940/eureka
+spring:
+  cloud:
+    stream:
+      # 确定消息队列的类型
+      default-binder: kafka
+      kafka:
+        binder:
+          # Kafka的消息中间件服务器地址
+          brokers:
+            - localhost:9092
+            - localhost:9093
+            - localhost:9094
+        bindings:
+          output:
+            binder: kafka
+            destination: learning
+            group: output-group-1
+            content-type: text/plain
